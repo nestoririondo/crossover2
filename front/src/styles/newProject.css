@@ -1,0 +1,21 @@
+#new-project {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 15px gray;
+  margin-top: 3rem;
+}
+
+#new-project form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+#new-project h1 {
+  margin-bottom: 3rem;
+}
