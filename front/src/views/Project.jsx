@@ -85,7 +85,7 @@ const Project = () => {
               </ul>
             </div>
           </div>
-          {donate && <Donate setDonate={setDonate} />}
+          {donate && <Donate setDonate={setDonate} project_id={id} />}
         </>
       )}
     </section>

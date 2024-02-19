@@ -1,7 +1,6 @@
 .donate-popup {
-  width: 50%;
-  min-height: 30vh;
   background-color: white;
+  padding: 2rem;
   z-index: 20;
   position: absolute;
   top: 35%;
@@ -13,21 +12,29 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  border-radius: 10px;
 }
 
 .donate-popup input {
   border: 1px solid #53bfb2;
+  padding: 0.5rem 1rem;
   accent-color: #53bfb2;
   border-radius: 20px;
 }
 .donate-popup button {
   width: 80%;
   padding: 0.5rem 1rem;
+  margin-top: 2rem;
   border-radius: 20px;
   border: 1px solid #53bfb2;
   background-color: white;
   color: #53bfb2;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    background-color: #53bfb2;
+    color: white;
+  }
 }
 
 .donate-popup img {
