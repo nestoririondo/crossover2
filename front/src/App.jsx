@@ -1,3 +1,5 @@
+import React from "react";
+
 // CSS
 import "./styles/boilerplate.css";
 
