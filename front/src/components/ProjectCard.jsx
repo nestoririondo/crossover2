@@ -1,12 +1,14 @@
 import React from "react";
 import "../styles/projectCard.css";
+import React from "react";
+
 const ProjectCard = ({ project }) => {
   return (
     <>
       <article className="project-card">
         <img src={project.image} alt="" />
         <h3>{project.title}</h3>
-        <p className="creator">Creator: {project.owner}</p>
+        <p className="creator">Creator: {project.owner.name}</p>
         <p className="description">{project.description}</p>
 
         <progress

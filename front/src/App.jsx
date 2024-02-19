@@ -2,6 +2,7 @@ import React from "react";
 
 // CSS
 import "./styles/boilerplate.css";
+import React from "react";
 
 // Components
 import Navbar from "./components/Navbar";
