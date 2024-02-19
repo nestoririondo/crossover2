@@ -1,0 +1,29 @@
+nav {
+  box-shadow: 5px 5px 10px rgb(114, 114, 114);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  color: green;
+  padding: 0.5rem 1rem;
+}
+
+.navbar p {
+  font-weight: bold;
+}
+
+.navbar button {
+  background-color: white;
+  padding: 0.25rem 1rem;
+  border: 1px solid green;
+  border-radius: 5px;
+  color: inherit;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar button:hover {
+  background-color: green;
+  color: white;
+}
