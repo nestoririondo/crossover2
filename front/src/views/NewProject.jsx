@@ -7,7 +7,6 @@ const NewProject = () => {
   const url = `http://localhost:8000/projects/newProject`;
   const { user } = useAuth();
 
-  console.log(user._id);
   const handleSubmit = (e) => {
     e.preventDefault();
     createObject(e);
