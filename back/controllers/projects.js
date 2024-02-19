@@ -13,6 +13,7 @@ export const getProject = async (req, res) => {
   const { id } = req.params;
   try {
     const project = await Project.findById(id).populate('owner', 'name').populate('donations.user', 'name').exec();
+
     res.json(project);
   } catch (error) {
     res.json({ message: error.message });

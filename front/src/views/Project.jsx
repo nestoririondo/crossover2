@@ -4,7 +4,6 @@ import React from "react";
 import "../styles/project.css";
 
 // Images
-import website from "../assets/website.png";
 import Donation from "../components/Donation";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -20,16 +19,17 @@ const Project = () => {
 
   const url = `http://localhost:8000/projects/${id}`;
 
-  // Get project by loading page
+  const getProject = async () => {
+    try {
+      const response = await axios.get(url);
+      setProject(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const getProject = async () => {
-      try {
-        const response = await axios.get(url);
-        setProject(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     getProject();
   }, []);
 
@@ -70,6 +70,7 @@ const Project = () => {
 
             <div className="fund">
               <div className="goal">
+
                 {project.donations.length > 0 ? (
                   <p>
                     {project.donations.reduce(
@@ -93,6 +94,7 @@ const Project = () => {
                   }
                   max={project.goal}
                 ></progress>
+
               </div>
 
               <button className="btn">Share</button>
@@ -106,7 +108,7 @@ const Project = () => {
               </ul>
             </div>
           </div>
-          {donate && <Donate setDonate={setDonate} />}
+          {donate && <Donate setDonate={setDonate} project_id={id} getProject={getProject}/>}
         </>
       )}
     </section>

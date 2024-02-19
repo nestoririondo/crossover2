@@ -17,14 +17,8 @@ const ProjectCard = ({ project }) => {
         <p className="description">{descriptionText}</p>
 
         <progress
-          value={
-            project.donations.length > 0
-              ? project.donations.reduce(
-                  (prev, donation) => prev + donation.amount,
-                  0
-                )
-              : 0
-          }
+
+          value={project.donations.reduce((prev, donation) => prev + donation.amount, 0)}
           max={project.goal}
         ></progress>
 
