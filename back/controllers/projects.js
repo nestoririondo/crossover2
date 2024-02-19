@@ -2,7 +2,7 @@ import Project from "../models/Project.js";
 
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().populate('owner', 'name').exec()
     res.json(projects);
   } catch (error) {
     res.json({ message: error.message });
