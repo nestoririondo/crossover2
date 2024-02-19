@@ -3,7 +3,6 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 const SECRET_TOKEN = process.env.SECRET_TOKEN;
-console.log(SECRET_TOKEN)
 
 const generateToken = (user) => {
   return jwt.sign({ id: user._id }, SECRET_TOKEN, {
