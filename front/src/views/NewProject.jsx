@@ -7,22 +7,19 @@ const NewProject = () => {
   const url = `http://localhost:8000/projects/newProject`;
   const { user } = useAuth();
 
-  console.log(user);
+  console.log(user._id);
   const handleSubmit = (e) => {
     e.preventDefault();
     createObject(e);
   };
 
   const createObject = (e) => {
-    const title = e.target.elements.title.value;
-    const description = e.target.elements.description.value;
-    const goal = e.target.elements.goal.value;
-
     const newProject = {
-      title: title,
-      description: description,
-      goal: goal,
-      createdAt: moment().format("YYYY-MM-DD"),
+      user_id: user._id,
+      title: e.target.elements.title.value,
+      description: e.target.elements.description.value,
+      goal: e.target.elements.goal.value,
+      image: "url",
     };
 
     postData(newProject);
@@ -30,7 +27,8 @@ const NewProject = () => {
 
   const postData = async (project) => {
     try {
-      await axios.post(url, project);
+      const response = await axios.post(url, project);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +40,7 @@ const NewProject = () => {
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" name="title" placeholder="Title" />
         <textarea name="description" id="" cols="30" rows="10" placeholder="description"></textarea>
-        <input type="file" />
+        <input name="image" type="text" />
         <input type="number" name="goal" placeholder="Goal" />
         <button type="submit">Submit</button>
       </form>

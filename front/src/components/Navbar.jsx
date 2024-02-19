@@ -6,6 +6,14 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
+  const startProject = () => {
+    if (!user) {
+      alert("Please login first");
+    } else {
+      navigate("/new-project");
+    }
+  };
+
   return (
     <nav>
       <div className="navbar">
@@ -23,7 +31,7 @@ const Navbar = () => {
             <button onClick={() => navigate("/signup")}>Signup</button>
           </div>
         )}
-        <button onClick={() => navigate("/new-project")}>Start Project</button>
+        <button onClick={() => startProject()}>Start Project</button>
       </div>
     </nav>
   );
