@@ -38,7 +38,7 @@ const NewProject = () => {
       <h1>Start Project</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" name="title" placeholder="Title" />
-        <textarea name="Description" id="" cols="30" rows="10" placeholder="description"></textarea>
+        <textarea name="description" id="" cols="30" rows="10" placeholder="description"></textarea>
         <input name="image" type="text" placeholder="Image Url" />
         <input type="number" name="goal" placeholder="Goal" />
         <button className="btn" type="submit">

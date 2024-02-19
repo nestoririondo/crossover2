@@ -26,6 +26,7 @@ const Project = () => {
       try {
         const response = await axios.get(url);
         setProject(response.data);
+        console.log(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -59,7 +60,7 @@ const Project = () => {
 
               <div className="founder">
                 <img src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="account icon" />
-                <span>Ken Kindermann organized this project.</span>
+                <span>{project.owner.name} organized this project.</span>
                 <hr />
               </div>
               <div className="description">{project.description}</div>
@@ -84,7 +85,7 @@ const Project = () => {
               </ul>
             </div>
           </div>
-          {donate && <Donate setDonate={setDonate} />}
+          {donate && <Donate setDonate={setDonate} project_id={id} />}
         </>
       )}
     </section>
