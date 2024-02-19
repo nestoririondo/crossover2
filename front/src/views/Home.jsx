@@ -1,9 +1,10 @@
 import ProjectCard from "../components/ProjectCard";
-import React from "react";
 import "../styles/projectCard.css";
 import "../styles/Home.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import React from "react";
+
 
 const Home = () => {
   const [projects, setProjects] = useState([]);

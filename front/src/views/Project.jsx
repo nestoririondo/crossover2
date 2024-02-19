@@ -1,3 +1,5 @@
+import React from "react";
+
 // CSS
 import "../styles/project.css";
 import React from "react";
@@ -78,7 +80,7 @@ const Project = () => {
                 Donate
               </button>
               <ul>
-                {[...Array(5)].map((_, donation) => (
+                {project.donations.map((donation) => (
                   <Donation details={donation} />
                 ))}
               </ul>
