@@ -1,10 +1,32 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts//Roboto-Black.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("../fonts//Roboto-Regular.ttf");
+  font-weight: 400;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", "sans-serif";
+  font-family: "Roboto-Regular", "sans-serif";
 }
 
 ul {
   list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
