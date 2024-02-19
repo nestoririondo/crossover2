@@ -55,11 +55,14 @@ const Project = () => {
           <h1>{project.title}</h1>
           <div className="project">
             <div className="project-details">
-              <img src={website} alt="website" />
+              <img src={project.image} alt="website" />
 
               <div className="founder">
-                <img src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="account icon" />
-                <span>Ken Kindermann organized this project.</span>
+                <img
+                  src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="account icon"
+                />
+                <span>{project.owner.name} organized this project.</span>
                 <hr />
               </div>
               <div className="description">{project.description}</div>
@@ -67,10 +70,29 @@ const Project = () => {
 
             <div className="fund">
               <div className="goal">
-                <p>
-                  {project.totalAmount}€ out of the {project.goal}€ donation goal
-                </p>
-                <progress value="3858" max={project.goal}></progress>
+                {project.donations.length > 0 ? (
+                  <p>
+                    {project.donations.reduce(
+                      (prev, donation) => prev + donation.amount,
+                      0
+                    )}{" "}
+                    € € out of the {project.goal}€ donation goal
+                  </p>
+                ) : (
+                  <p>0 € out of the {project.goal}€ donation goal</p>
+                )}
+
+                <progress
+                  value={
+                    project.donations.length > 0
+                      ? project.donations.reduce(
+                          (prev, donation) => prev + donation.amount,
+                          0
+                        )
+                      : 0
+                  }
+                  max={project.goal}
+                ></progress>
               </div>
 
               <button className="btn">Share</button>

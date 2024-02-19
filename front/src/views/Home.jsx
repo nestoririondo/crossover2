@@ -1,6 +1,6 @@
 import ProjectCard from "../components/ProjectCard";
 import "../styles/projectCard.css";
-import "../styles/Home.css";
+import "../styles/home.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import React from "react";
@@ -35,10 +35,10 @@ const Home = () => {
   return (
     <section className="home">
     <h1>Welcome to FundMyCode</h1>
-    <input
+    {/* <input
       type="text"
       placeholder="Search for Projects by name or category"
-    />
+    /> */}
     {loading ? <div>Loading Projects ...</div> : null}
     {projects.length > 0 ? (
       <>
