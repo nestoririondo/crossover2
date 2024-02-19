@@ -9,6 +9,8 @@ const SignupForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const SERVER = import.meta.env.VITE_SERVER;
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,7 +21,7 @@ const SignupForm = () => {
       password,
     };
     try {
-      const response = await axios.post(`http://localhost:8000/users/`, userData);
+      const response = await axios.post(`${SERVER}/users/`, userData);
 
       if (response.status === 201) {
         toast.success("Successfully registered! Welcome");

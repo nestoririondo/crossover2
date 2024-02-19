@@ -15,6 +15,9 @@ nav {
 .navbar p {
   font-weight: bold;
 }
+.navbar .logo {
+  cursor: pointer;
+}
 
 .navbar button {
   background-color: white;

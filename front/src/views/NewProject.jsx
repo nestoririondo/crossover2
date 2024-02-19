@@ -5,7 +5,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const NewProject = () => {
-  const url = `http://localhost:8000/projects/newProject`;
+  const SERVER = import.meta.env.VITE_SERVER;
+  const url = `${SERVER}/projects/newProject`;
   const { user } = useAuth();
   const navigate = useNavigate();
 

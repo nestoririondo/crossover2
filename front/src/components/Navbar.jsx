@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar">
-        <p onClick={() => navigate("/")}>FundMyCode</p>
+        <p className="logo" onClick={() => navigate("/")}>FundMyCode</p>
         {user ? (
           <div className="user">
             <p>

@@ -15,23 +15,29 @@ import Donate from "../components/Donate";
 const Project = () => {
   const [project, setProject] = useState(null);
   const [donate, setDonate] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
-  const url = `http://localhost:8000/projects/${id}`;
+  const SERVER = import.meta.env.VITE_SERVER;
+
+  const url = `${SERVER}/projects/${id}`;
 
   const getProject = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(url);
       setProject(response.data);
       console.log(response.data);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     getProject();
-  }, []);
+  }, [id]);
 
   // Add totalAmount to project object
   useEffect(() => {
@@ -48,7 +54,7 @@ const Project = () => {
 
   return (
     <section id="project-view">
-      {!project ? (
+      {isLoading || project === null ? (
         <p> Loading</p>
       ) : (
         <>
@@ -70,7 +76,6 @@ const Project = () => {
 
             <div className="fund">
               <div className="goal">
-
                 {project.donations.length > 0 ? (
                   <p>
                     {project.donations.reduce(
@@ -94,7 +99,6 @@ const Project = () => {
                   }
                   max={project.goal}
                 ></progress>
-
               </div>
 
               <button className="btn">Share</button>
@@ -108,7 +112,13 @@ const Project = () => {
               </ul>
             </div>
           </div>
-          {donate && <Donate setDonate={setDonate} project_id={id} getProject={getProject}/>}
+          {donate && (
+            <Donate
+              setDonate={setDonate}
+              project_id={id}
+              getProject={getProject}
+            />
+          )}
         </>
       )}
     </section>
