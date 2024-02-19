@@ -1,5 +1,5 @@
 [build]
-  publish = "build"
+  publish = "front/build"
   command = "npm run build"
 
 [[redirects]]
