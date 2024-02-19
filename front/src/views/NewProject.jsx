@@ -2,14 +2,17 @@ import "../styles/newProject.css";
 import axios from "axios";
 import { useAuth } from "../context/useAuth";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewProject = () => {
   const url = `http://localhost:8000/projects/newProject`;
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     createObject(e);
+    navigate("/");
   };
 
   const createObject = (e) => {

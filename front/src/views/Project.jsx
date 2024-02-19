@@ -4,7 +4,6 @@ import React from "react";
 import "../styles/project.css";
 
 // Images
-import website from "../assets/website.png";
 import Donation from "../components/Donation";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -20,17 +19,17 @@ const Project = () => {
 
   const url = `http://localhost:8000/projects/${id}`;
 
-  // Get project by loading page
+  const getProject = async () => {
+    try {
+      const response = await axios.get(url);
+      setProject(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const getProject = async () => {
-      try {
-        const response = await axios.get(url);
-        setProject(response.data);
-        console.log(response.data)
-      } catch (error) {
-        console.error(error);
-      }
-    };
     getProject();
   }, []);
 
@@ -56,10 +55,13 @@ const Project = () => {
           <h1>{project.title}</h1>
           <div className="project">
             <div className="project-details">
-              <img src={website} alt="website" />
+              <img src={project.image} alt="website" />
 
               <div className="founder">
-                <img src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="account icon" />
+                <img
+                  src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="account icon"
+                />
                 <span>{project.owner.name} organized this project.</span>
                 <hr />
               </div>
@@ -69,9 +71,10 @@ const Project = () => {
             <div className="fund">
               <div className="goal">
                 <p>
-                  {project.totalAmount}€ out of the {project.goal}€ donation goal
+                  {project.totalAmount}€ out of the {project.goal}€ donation
+                  goal
                 </p>
-                <progress value="3858" max={project.goal}></progress>
+                <progress value={project.totalAmount} max={project.goal}></progress>
               </div>
 
               <button className="btn">Share</button>
@@ -85,7 +88,7 @@ const Project = () => {
               </ul>
             </div>
           </div>
-          {donate && <Donate setDonate={setDonate} project_id={id} />}
+          {donate && <Donate setDonate={setDonate} project_id={id} getProject={getProject}/>}
         </>
       )}
     </section>
