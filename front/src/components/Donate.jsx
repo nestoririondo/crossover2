@@ -23,6 +23,7 @@ const Donate = ({ setDonate, project_id }) => {
     e.preventDefault();
     const response = await axios.post(`${SERVER}/projects/donate`, donation);
     console.log(response);
+    setDonate(false);
   };
 
   return (
