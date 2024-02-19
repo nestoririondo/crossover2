@@ -1,13 +1,15 @@
-h1 {
-  text-align: center;
-}
-input {
-  margin: 0 20%;
-  background-color: white;
-  height: 40px;
-  width: 60%;
-  border: none;
-  border-bottom: 2px solid #53bfb2;
-  padding: 0px 20px;
-  font-size: 16px;
+.home {
+  h1 {
+    text-align: center;
+  }
+  input {
+    margin: 0 20%;
+    background-color: white;
+    height: 40px;
+    width: 60%;
+    border: none;
+    border-bottom: 2px solid #53bfb2;
+    padding: 0px 20px;
+    font-size: 16px;
+  }
 }
