@@ -74,7 +74,7 @@ const Project = () => {
                   {project.totalAmount}€ out of the {project.goal}€ donation
                   goal
                 </p>
-                <progress value="3858" max={project.goal}></progress>
+                <progress value={project.totalAmount} max={project.goal}></progress>
               </div>
 
               <button className="btn">Share</button>
