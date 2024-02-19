@@ -3,7 +3,6 @@ import "../styles/project.css";
 
 // Images
 import website from "../assets/website.png";
-import accountIcon from "../assets/account_circle_FILL0_wght400_GRAD0_opsz24.png";
 import Donation from "../components/Donation";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -19,6 +18,7 @@ const Project = () => {
 
   const url = `http://localhost:8000/projects/${id}`;
 
+  // Get project by loading page
   useEffect(() => {
     const getProject = async () => {
       try {
@@ -32,6 +32,19 @@ const Project = () => {
     getProject();
   }, []);
 
+  // Add totalAmount to project object
+  useEffect(() => {
+    setProject((prevProject) => {
+      if (prevProject && !prevProject.totalAmount) {
+        const totalAmount = prevProject.donations.reduce((acc, donation) => {
+          return acc + donation.amount;
+        }, 0);
+        return { ...prevProject, totalAmount: totalAmount };
+      }
+      return prevProject;
+    });
+  }, [project]);
+
   return (
     <section id="project-view">
       {!project ? (
@@ -44,7 +57,7 @@ const Project = () => {
               <img src={website} alt="website" />
 
               <div className="founder">
-                <img src={accountIcon} alt="account icon" />
+                <img src="/assets/account_circle_FILL0_wght400_GRAD0_opsz24.svg" alt="account icon" />
                 <span>Ken Kindermann organized this project.</span>
                 <hr />
               </div>
@@ -53,7 +66,9 @@ const Project = () => {
 
             <div className="fund">
               <div className="goal">
-                <p>3,858€ out of the {project.goal}€ donation goal</p>
+                <p>
+                  {project.totalAmount}€ out of the {project.goal}€ donation goal
+                </p>
                 <progress value="3858" max={project.goal}></progress>
               </div>
 
