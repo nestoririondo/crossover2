@@ -1,12 +1,12 @@
 import React from "react";
 
-const Donation = () => {
+const Donation = ({ details }) => {
   return (
     <li className="donation">
       <img src="/assets/paid_FILL0_wght400_GRAD0_opsz24.svg" alt="account icon" />
       <div>
-        <p className="donator">Ken Kindermann</p>
-        <p>25€</p>
+        <p className="donator">{details.user}</p>
+        <p>{details.amount}€</p>
       </div>
     </li>
   );

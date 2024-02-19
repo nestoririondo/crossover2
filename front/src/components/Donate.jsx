@@ -1,4 +1,5 @@
 import "../styles/donate.css";
+import React from "react";
 
 const Donate = ({ setDonate }) => {
   return (

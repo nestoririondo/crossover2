@@ -79,7 +79,7 @@ const Project = () => {
                 Donate
               </button>
               <ul>
-                {[...Array(5)].map((_, donation) => (
+                {project.donations.map((donation) => (
                   <Donation details={donation} />
                 ))}
               </ul>
