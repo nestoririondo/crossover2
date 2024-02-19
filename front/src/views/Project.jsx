@@ -6,14 +6,18 @@ import website from "../assets/website.png";
 import accountIcon from "../assets/account_circle_FILL0_wght400_GRAD0_opsz24.png";
 import Donation from "../components/Donation";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 // Libraries
 import axios from "axios";
+import Donate from "../components/Donate";
 
 const Project = () => {
   const [project, setProject] = useState(null);
+  const [donate, setDonate] = useState(false);
+  const { id } = useParams();
 
-  const url = `http://localhost:8000/projects/65d32c52b4a7f3205127f12e`;
+  const url = `http://localhost:8000/projects/${id}`;
 
   useEffect(() => {
     const getProject = async () => {
@@ -54,7 +58,9 @@ const Project = () => {
               </div>
 
               <button className="btn">Share</button>
-              <button className="btn">Donate</button>
+              <button className="btn" onClick={() => setDonate(true)}>
+                Donate
+              </button>
               <ul>
                 {[...Array(5)].map((_, donation) => (
                   <Donation details={donation} />
@@ -62,6 +68,7 @@ const Project = () => {
               </ul>
             </div>
           </div>
+          {donate && <Donate setDonate={setDonate} />}
         </>
       )}
     </section>
