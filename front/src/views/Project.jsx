@@ -25,7 +25,6 @@ const Project = () => {
     const getProject = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response);
         setProject(response.data);
       } catch (error) {
         console.error(error);
@@ -80,7 +79,7 @@ const Project = () => {
               </button>
               <ul>
                 {project.donations.map((donation) => (
-                  <Donation details={donation} />
+                  <Donation key={donation._id} details={donation} />
                 ))}
               </ul>
             </div>
