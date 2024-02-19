@@ -1,6 +1,7 @@
 import "../styles/newProject.css";
 import axios from "axios";
 import { useAuth } from "../context/useAuth";
+import React from "react";
 
 const NewProject = () => {
   const url = `http://localhost:8000/projects/newProject`;

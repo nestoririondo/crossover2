@@ -1,5 +1,6 @@
 // CSS
 import "../styles/project.css";
+import React from "react";
 
 // Images
 import website from "../assets/website.png";

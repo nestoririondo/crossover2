@@ -1,5 +1,6 @@
 import ProjectCard from "../components/ProjectCard";
-import "../styles/ProjectCard.css";
+import React from "react";
+import "../styles/projectCard.css";
 import "../styles/Home.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
