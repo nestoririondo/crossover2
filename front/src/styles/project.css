@@ -37,7 +37,7 @@
 .fund {
   width: 40%;
   border-radius: 20px;
-  box-shadow: 0 0 15px gray;
+
   display: flex;
   flex-direction: column;
   padding: 0.5rem;

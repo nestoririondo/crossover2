@@ -1,10 +1,13 @@
 import "../styles/newProject.css";
 import moment from "moment";
 import axios from "axios";
+import { useAuth } from "../context/useAuth";
 
 const NewProject = () => {
   const url = `http://localhost:8000/projects/newProject`;
+  const { user } = useAuth();
 
+  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     createObject(e);

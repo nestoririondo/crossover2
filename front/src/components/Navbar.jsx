@@ -12,16 +12,18 @@ const Navbar = () => {
         <p>FundMyCode</p>
         {user ? (
           <div className="user">
-            <p>Welcome, <span>{user.name}</span>!</p>
+            <p>
+              Welcome, <span>{user.name}</span>!
+            </p>
             <button onClick={logout}>Logout</button>
           </div>
         ) : (
           <div className="login-signup">
-            <button onClick={()=>navigate('/login')}>Login</button>
-            <button onClick={()=>navigate('/signup')}>Signup</button>
+            <button onClick={() => navigate("/login")}>Login</button>
+            <button onClick={() => navigate("/signup")}>Signup</button>
           </div>
         )}
-        <button>Start Project</button>
+        <button onClick={() => navigate("/new-project")}>Start Project</button>
       </div>
     </nav>
   );
