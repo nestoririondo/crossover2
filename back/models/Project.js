@@ -21,7 +21,7 @@ const ProjectSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  category: [{ required: true, type: String }],
+  category: [{ required: false, type: String }],
   createdAt: { required: true, type: Date, default: Date.now },
 });
 
