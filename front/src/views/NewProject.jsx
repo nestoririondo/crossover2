@@ -1,5 +1,4 @@
 import "../styles/newProject.css";
-import moment from "moment";
 import axios from "axios";
 import { useAuth } from "../context/useAuth";
 
@@ -18,7 +17,7 @@ const NewProject = () => {
       title: e.target.elements.title.value,
       description: e.target.elements.description.value,
       goal: e.target.elements.goal.value,
-      image: "url",
+      image: e.target.elements.image.value,
     };
 
     postData(newProject);
@@ -38,10 +37,12 @@ const NewProject = () => {
       <h1>Start Project</h1>
       <form onSubmit={(e) => handleSubmit(e)}>
         <input type="text" name="title" placeholder="Title" />
-        <textarea name="description" id="" cols="30" rows="10" placeholder="description"></textarea>
-        <input name="image" type="text" />
+        <textarea name="Description" id="" cols="30" rows="10" placeholder="description"></textarea>
+        <input name="image" type="text" placeholder="Image Url" />
         <input type="number" name="goal" placeholder="Goal" />
-        <button type="submit">Submit</button>
+        <button className="btn" type="submit">
+          Submit
+        </button>
       </form>
     </section>
   );

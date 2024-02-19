@@ -16,17 +16,17 @@
 }
 
 .donate-popup input {
-  border: 1px solid green;
-  accent-color: green;
+  border: 1px solid #53bfb2;
+  accent-color: #53bfb2;
   border-radius: 20px;
 }
 .donate-popup button {
   width: 80%;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  border: 1px solid green;
+  border: 1px solid #53bfb2;
   background-color: white;
-  color: green;
+  color: #53bfb2;
   transition: all 0.3s ease-in-out;
 }
 
@@ -34,4 +34,8 @@
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.donator {
+  color: rgb(61, 61, 61);
 }

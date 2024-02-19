@@ -49,14 +49,14 @@
   width: 80%;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  border: 1px solid green;
+  border: 1px solid #53bfb2;
   background-color: white;
-  color: green;
+  color: #53bfb2;
   transition: all 0.3s ease-in-out;
 }
 
 .btn:hover {
-  background-color: green;
+  background-color: #53bfb2;
   color: white;
 }
 
@@ -98,9 +98,9 @@ ul {
 }
 
 .goal progress::-webkit-progress-value {
-  background-color: green;
+  background-color: #53bfb2;
 }
 
 .goal progress::-moz-progress-bar {
-  background-color: green;
+  background-color: #53bfb2;
 }
