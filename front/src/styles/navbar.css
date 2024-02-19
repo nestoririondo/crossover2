@@ -4,6 +4,7 @@ nav {
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1000px;
   margin: 0 auto;
   color: green;
@@ -20,10 +21,30 @@ nav {
   border: 1px solid green;
   border-radius: 5px;
   color: inherit;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .navbar button:hover {
   background-color: green;
   color: white;
+  cursor: pointer;
+}
+
+.navbar .user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar .user p {
+  font-weight: normal;
+}
+.navbar .user span {
+  font-weight: bold;
+}
+
+.navbar .login-signup {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
 }

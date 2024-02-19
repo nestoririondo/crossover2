@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
+import "../styles/login.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -48,7 +49,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       {message && <p>{message}</p>}
-    </>
+    </div>
   );
 };
 
