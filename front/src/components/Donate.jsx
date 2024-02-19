@@ -15,6 +15,10 @@ const Donate = ({ setDonate, project_id, getProject }) => {
   };
 
   const handleSubmit = async (e) => {
+    if (!user) {
+      alert("Please login to donate");
+      return;
+    }
     const donation = {
       amount: amount,
       project_id: project_id,
