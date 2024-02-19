@@ -1,4 +1,4 @@
-import "../styles/ProjectCard.css";
+import "../styles/projectCard.css";
 const ProjectCard = ({ project }) => {
   return (
     <>
@@ -9,12 +9,13 @@ const ProjectCard = ({ project }) => {
         <p className="description">{project.description}</p>
 
         <progress
-          value={project.donations.length}
+          value={1234}
           max={project.goal}
         ></progress>
-        <p>{project.donations.length} € donated</p>
-        {/* <p>{project.donations.map(donation => (
-            <p>donation.ammount</p>)) } € donated</p> */}
+
+        {project.donations.length > 0 ? <p>{project.donations.reduce((prev, donation) => prev + donation.amount, 0)}  € donated</p> : <p>0 € donated</p>}
+        
+        
         {project.category.length < 1 ? null : project.category.length === 1 ? (
           <p>
             Category: <span className="category">{project.category[0]}</span>
