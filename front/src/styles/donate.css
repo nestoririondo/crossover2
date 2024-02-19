@@ -1,0 +1,37 @@
+.donate-popup {
+  width: 50%;
+  min-height: 30vh;
+  background-color: white;
+  z-index: 20;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.donate-popup input {
+  border: 1px solid green;
+  accent-color: green;
+  border-radius: 20px;
+}
+.donate-popup button {
+  width: 80%;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid green;
+  background-color: white;
+  color: green;
+  transition: all 0.3s ease-in-out;
+}
+
+.donate-popup img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
