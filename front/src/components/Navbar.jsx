@@ -18,7 +18,7 @@ const Navbar = () => {
         ) : (
           <div className="login-signup">
             <button onClick={()=>navigate('/login')}>Login</button>
-            <button onClick={()=>navigate('/signup')}>Login</button>
+            <button onClick={()=>navigate('/signup')}>Signup</button>
           </div>
         )}
         <button>Start Project</button>
