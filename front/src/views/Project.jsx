@@ -70,11 +70,31 @@ const Project = () => {
 
             <div className="fund">
               <div className="goal">
-                <p>
-                  {project.totalAmount}€ out of the {project.goal}€ donation
-                  goal
-                </p>
-                <progress value={project.totalAmount} max={project.goal}></progress>
+
+                {project.donations.length > 0 ? (
+                  <p>
+                    {project.donations.reduce(
+                      (prev, donation) => prev + donation.amount,
+                      0
+                    )}{" "}
+                    € € out of the {project.goal}€ donation goal
+                  </p>
+                ) : (
+                  <p>0 € out of the {project.goal}€ donation goal</p>
+                )}
+
+                <progress
+                  value={
+                    project.donations.length > 0
+                      ? project.donations.reduce(
+                          (prev, donation) => prev + donation.amount,
+                          0
+                        )
+                      : 0
+                  }
+                  max={project.goal}
+                ></progress>
+
               </div>
 
               <button className="btn">Share</button>
