@@ -1,5 +1,6 @@
 nav {
   box-shadow: 5px 5px 10px rgb(114, 114, 114);
+  padding: 0.5rem 1rem;
 }
 .navbar {
   display: flex;
@@ -8,7 +9,7 @@ nav {
   max-width: 1000px;
   margin: 0 auto;
   color: green;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem;
 }
 
 .navbar p {

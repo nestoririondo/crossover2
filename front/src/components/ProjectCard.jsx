@@ -1,25 +1,32 @@
-import "../styles/ProjectCard.css"
-const ProjectCard = () => {
+import "../styles/ProjectCard.css";
+const ProjectCard = ({ project }) => {
   return (
     <>
       <article className="project-card">
-        <img
-          src="https://thumbs.dreamstime.com/b/coding-concept-html-code-coding-programming-concept-html-source-code-tilted-vector-illustration-155503904.jpg"
-          alt=""
-        />
-        <h3>Support my open source cat food app</h3>
-        <p className="creator">Creator: Max Mustermann</p>
-        <p className="description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam earum
-          fugit eos commodi magnam tempore expedita sint quae dolores a eaque,
-          architecto explicabo vel quo vero, ut neque, vitae officiis!
-        </p>
+        <img src={project.image} alt="" />
+        <h3>{project.title}</h3>
+        <p className="creator">Creator: {project.owner}</p>
+        <p className="description">{project.description}</p>
 
-        <div className="progress-bar">
-          <div className="progress-bar--green"></div>
-          <div className="progress-bar--grey"></div>
-        </div>
-        <p>1234 € donated</p>
+        <progress
+          value={project.donations.length}
+          max={project.goal}
+        ></progress>
+        <p>{project.donations.length} € donated</p>
+        {/* <p>{project.donations.map(donation => (
+            <p>donation.ammount</p>)) } € donated</p> */}
+        {project.category.length < 1 ? null : project.category.length === 1 ? (
+          <p>
+            Category: <span className="category">{project.category[0]}</span>
+          </p>
+        ) : (
+          <p>
+            Categories:
+            {project.category.map((cat) => (
+              <span className="category">{cat}</span>
+            ))}
+          </p>
+        )}
       </article>
     </>
   );
