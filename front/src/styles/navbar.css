@@ -4,7 +4,7 @@ nav {
 .navbar {
   display: flex;
   justify-content: space-between;
-  max-width: 1300px;
+  max-width: 1000px;
   margin: 0 auto;
   color: green;
   padding: 0.5rem 1rem;
