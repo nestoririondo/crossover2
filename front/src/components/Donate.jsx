@@ -6,7 +6,7 @@ import { useAuth } from "../context/useAuth";
 
 const SERVER = import.meta.env.VITE_SERVER;
 
-const Donate = ({ setDonate, project_id }) => {
+const Donate = ({ setDonate, project_id, getProject }) => {
   const { user } = useAuth();
   const [amount, setAmount] = useState(100);
 
@@ -21,9 +21,15 @@ const Donate = ({ setDonate, project_id }) => {
       user_id: user._id,
     };
     e.preventDefault();
-    const response = await axios.post(`${SERVER}/projects/donate`, donation);
-    console.log(response);
-    setDonate(false);
+    try {
+      const response = await axios.post(`${SERVER}/projects/donate`, donation);
+      console.log(response);
+      getProject();
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setDonate(false);
+    }
   };
 
   return (
